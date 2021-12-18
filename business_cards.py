@@ -13,6 +13,11 @@ class BaseContact:
     
     def contact(self):
         return f".. Wybieram numer {self.phone} i dzwonię do {self.first_name} {self.last_name}"
+    
+    @property
+    def label_lenght(self):
+        label_lenghter = len(self.first_name + " " + self.last_name)
+        return f"Długość imienia i nazwiska: {label_lenghter}"
 
 class BusinessContact(BaseContact):
     def __init__(self, position, company, business_phone, *args, **kwargs):
@@ -44,5 +49,6 @@ card2 = BusinessContact(
     business_phone = fake.phone_number()
 )
 
-print(card2)
-print(card2.contact())
+print(card1)
+print(card1.contact())
+print(card1.label_lenght)
