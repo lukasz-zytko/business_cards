@@ -77,7 +77,7 @@ def cards_collection(pattern,number):
                 company = fake.company(),
                 business_phone = fake.phone_number()
                 )
-            print(f"Osoba:\t\t{card.first_name} {card.last_name}\nTelefon:\t{card.phone}\nemail:\t\t{card.email}\n\tFIRMA\t\t{card.company}\n\tSTANOWISKO:\t{card.position}\n\tNUMER SŁUŻBOWY:\t{card.business_phone}\n"+str(45*"-"))
+            print(f"Osoba:\t\t{card.first_name} {card.last_name}\nTelefon:\t{card.phone}\nemail:\t\t{card.email}\n\tFIRMA:\t\t{card.company}\n\tSTANOWISKO:\t{card.position}\n\tNUMER SŁUŻBOWY:\t{card.business_phone}\n"+str(45*"-"))
 
 if __name__ == "__main__":
     pattern = str(input("Jaki typ wizytówki Cię interesuje? [P] - prywatne, [B] - biznesowe : "))
