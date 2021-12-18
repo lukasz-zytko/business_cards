@@ -32,23 +32,54 @@ class BusinessContact(BaseContact):
     def contact(self):
         return f".. Wybieram numer {self.business_phone} i dzwonię do {self.first_name} {self.last_name}"
 
-card1 = BaseContact(
-    first_name = fake.first_name(),
-    last_name = fake.last_name(),
-    phone = fake.phone_number(),
-    email = fake.email()
-)
+#card1 = BaseContact(
+#    first_name = fake.first_name(),
+#    last_name = fake.last_name(),
+#    phone = fake.phone_number(),
+#    email = fake.email()
+#)
 
-card2 = BusinessContact(
-    first_name = fake.first_name(),
-    last_name = fake.last_name(),
-    phone = fake.phone_number(),
-    email = fake.email(),
-    position = fake.job(),
-    company = fake.company(),
-    business_phone = fake.phone_number()
-)
+#card2 = BusinessContact(
+#    first_name = fake.first_name(),
+#    last_name = fake.last_name(),
+#    phone = fake.phone_number(),
+#    email = fake.email(),
+#    position = fake.job(),
+#    company = fake.company(),
+#    business_phone = fake.phone_number()
+#)
 
-print(card1)
-print(card1.contact())
-print(card1.label_lenght)
+#print(card1)
+#print(card1.contact())
+#print(card1.label_lenght)
+
+def cards_collection(pattern,number):
+    print("Wizytówki:")
+    if pattern.lower() == 'p':
+        print("********* Wizytówki prywatne *********")
+        for i in range(number):
+            card = BaseContact(
+                first_name = fake.first_name(),
+                last_name = fake.last_name(),
+                phone = fake.phone_number(),
+                email = fake.email()
+            )      
+            print(f"Osoba:\t\t{card.first_name} {card.last_name}\nTelefon:\t{card.phone}\nemail:\t\t{card.email}\n"+str(40*"-"))
+    elif pattern.lower() == 'b':
+        print("************** Wizytówki biznesowe ***************")
+        for i in range(number):
+            card = BusinessContact(
+                first_name = fake.first_name(),
+                last_name = fake.last_name(),
+                phone = fake.phone_number(),
+                email = fake.email(),
+                position = fake.job(),
+                company = fake.company(),
+                business_phone = fake.phone_number()
+                )
+            print(f"Osoba:\t\t{card.first_name} {card.last_name}\nTelefon:\t{card.phone}\nemail:\t\t{card.email}\n\tFIRMA\t\t{card.company}\n\tSTANOWISKO:\t{card.position}\n\tNUMER SŁUŻBOWY:\t{card.business_phone}\n"+str(45*"-"))
+
+if __name__ == "__main__":
+    pattern = str(input("Jaki typ wizytówki Cię interesuje? [P] - prywatne, [B] - biznesowe : "))
+    number = int(input("Podaj liczbę wizytówek do wygenerowania: "))
+    cards_collection(pattern,number)
