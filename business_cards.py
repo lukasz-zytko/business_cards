@@ -53,8 +53,7 @@ class BusinessContact(BaseContact):
 #print(card1.contact())
 #print(card1.label_lenght)
 
-def cards_collection(pattern,number):
-    print("Wizytówki:")
+def create_contacts(pattern,number):
     if pattern.lower() == 'p':
         print("********* Wizytówki prywatne *********")
         for i in range(number):
@@ -82,4 +81,4 @@ def cards_collection(pattern,number):
 if __name__ == "__main__":
     pattern = str(input("Jaki typ wizytówki Cię interesuje? [P] - prywatne, [B] - biznesowe : "))
     number = int(input("Podaj liczbę wizytówek do wygenerowania: "))
-    cards_collection(pattern,number)
+    create_contacts(pattern,number)
